@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Personal", href: "/personal" },
-    { name: "Business", href: "/business" },
+    { name: "For Home", href: "/home" },
+    { name: "For Business", href: "/business" },
     { name: "Check Coverage", href: "/check-coverage" },
     { name: "Career", href: "/career" },
   ];
@@ -20,9 +20,14 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-[#E6007E]">
-                Time Fibre
-              </span>
+              <Image 
+                src="/images/logo.png" 
+                alt="Time Fibre Authorized Distributor" 
+                width={200} 
+                height={60} 
+                className="h-15 w-auto"
+                priority
+              />
             </Link>
           </div>
 
@@ -39,7 +44,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/application"
-              className="bg-[#E6007E] text-white px-6 py-2.5 rounded-full font-bold hover:bg-[#c4006b] transition-colors"
+              className="bg-[#E6007E] text-white px-6 py-2.5 rounded-full font-bold hover:bg-[#c4006b] transition-colors ml-5"
             >
               APPLY NOW
             </Link>

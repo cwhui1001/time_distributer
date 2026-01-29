@@ -2,42 +2,32 @@
 import Link from 'next/link';
 import { ArrowRight, Monitor, Briefcase, Users, Phone, FileText, CreditCard } from 'lucide-react';
 import Head from 'next/head';
+import HeroSlider from '@/components/HeroSlider';
 
-export default function Home() {
+export default function Main() {
   return (
     <>
       <Head>
-        <title>Time Fibre Internet</title>
+        <title>Time Fibre Distributor</title>
         <meta name="description" content="Time Fibre Internet Malaysia - Only At Time Fibre" />
       </Head>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#E6007E] to-[#a8005d] text-white py-24 sm:py-32 overflow-hidden">
-        {/* Abstract shapes/bg */}
-        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 rounded-full bg-white/10 blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 rounded-full bg-black/10 blur-3xl"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
-            Only At Time Fibre
-          </h1>
-          <p className="text-xl sm:text-2xl opacity-90 mb-10 max-w-2xl mx-auto">
-            Experience the fastest 100% Fibre network in Malaysia. 
-          </p>
-          <div className="flex justify-center gap-4">
-            <Link href="/personal" className="bg-white text-[#E6007E] font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition-transform transform hover:-translate-y-1">
-              For Home
-            </Link>
-             <Link href="/business" className="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white/10 transition-transform transform hover:-translate-y-1">
-              For Business
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Hero Slider */}
+      <HeroSlider />
 
       {/* Cards Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="cards-section" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-[#E6007E] mb-4">
+              Only At Time Fibre
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Experience the fastest and most stable 100% Fibre network in Malaysia.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Card 1: Home Details */}
@@ -48,7 +38,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Home Fibre</h3>
                 <p className="text-gray-600 mb-auto">GET UP TO RM600 OFF when you sign up for 500Mbps & above!</p>
-                <Link href="/personal" className="mt-8 text-[#E6007E] font-bold flex items-center gap-2 hover:gap-3 transition-all">
+                <Link href="/home" className="mt-8 text-[#E6007E] font-bold flex items-center gap-2 hover:gap-3 transition-all">
                   Explore now <ArrowRight size={18} />
                 </Link>
               </div>
