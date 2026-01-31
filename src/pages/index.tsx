@@ -24,9 +24,6 @@ export default function Main() {
             <h2 className="text-3xl md:text-5xl font-extrabold text-primary mb-4">
               Only At Time Fibre
             </h2>
-            <p className="text-lg text-gray-600 max-w-1xl mx-auto">
-              Experience the fastest and most stable 100% Fibre network in Malaysia.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

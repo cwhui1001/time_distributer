@@ -5,7 +5,7 @@ import { Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#f2f2f2] pt-16 pb-8 border-t border-gray-200">
+    <footer className="bg-[#f2f2f2] pt-16 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand Column */}
@@ -24,11 +24,11 @@ export default function Footer() {
           <div>
             <h4 className="text-gray-900 font-bold mb-6 uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-3">
-              <li><Link href="/" className="text-gray-600 hover:text-primary">Home</Link></li>
-              <li><Link href="/personal" className="text-gray-600 hover:text-primary">For Home</Link></li>
-              <li><Link href="/business" className="text-gray-600 hover:text-primary">For Business</Link></li>
-              <li><Link href="/check-coverage" className="text-gray-600 hover:text-primary">Check Coverage</Link></li>
-              <li><Link href="/career" className="text-gray-600 hover:text-primary">Career</Link></li>
+              <li><Link href="/" className="text-primary hover:text-black">Home</Link></li>
+              <li><Link href="/personal" className="text-primary hover:text-black">For Home</Link></li>
+              <li><Link href="/business" className="text-primary hover:text-black">For Business</Link></li>
+              <li><Link href="/check-coverage" className="text-primary hover:text-black">Check Coverage</Link></li>
+              <li><Link href="/career" className="text-primary hover:text-black">Career</Link></li>
             </ul>
           </div>
 
@@ -57,8 +57,8 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-primary mt-0.5" />
                 <div>
-                   <p className="text-sm text-gray-500 mb-1">Email Us</p>
-                  <a href="mailto:sales@fibrehomeinternet.com" className="text-gray-800 hover:text-primary">
+                  <p className="text-sm text-gray-500 mb-1">Email Us</p>
+                  <a href="mailto:sales@fibrehomeinternet.com" className="text-gray-800 font-bold hover:text-primary big-text">
                     sales@fibrehomeinternet.com
                   </a>
                 </div>
@@ -69,11 +69,12 @@ export default function Footer() {
           
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-300 text-center">
-          <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Time Fibre Internet. All Rights Reserved.
-          </p>
         </div>
+      
+      <div className="w-full bg-black py-6 text-center mt-12">
+        <p className="text-gray-300 text-base font-medium">
+          TIME Authorised Distributor
+        </p>
       </div>
     </footer>
   );
