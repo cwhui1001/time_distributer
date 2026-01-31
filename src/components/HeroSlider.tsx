@@ -93,7 +93,7 @@ export default function HeroSlider() {
             key={index}
             className={`h-2.5 rounded-full transition-all duration-300 ${
               index === selectedIndex 
-                ? 'bg-[#E6007E] w-8' 
+                ? 'bg-primary w-8' 
                 : 'bg-gray-300 w-2.5 hover:bg-gray-400'
             }`}
             onClick={() => scrollTo(index)}

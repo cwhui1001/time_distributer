@@ -37,14 +37,14 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 hover:text-[#E6007E] font-medium transition-colors"
+                className="text-gray-700 hover:text-primary font-medium transition-colors"
               >
                 {link.name}
               </Link>
             ))}
             <Link
               href="/application"
-              className="bg-[#E6007E] text-white px-6 py-2.5 rounded-full font-bold hover:bg-[#c4006b] transition-colors ml-5"
+              className="bg-primary text-white px-6 py-2.5 rounded-full font-bold hover:bg-black transition-colors ml-5"
             >
               APPLY NOW
             </Link>
@@ -54,7 +54,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-[#E6007E] focus:outline-none"
+              className="text-gray-700 hover:text-primary focus:outline-none"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -70,7 +70,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-[#E6007E] hover:bg-gray-50 rounded-md"
+                className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -78,7 +78,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/application"
-              className="block w-full text-center mt-4 bg-[#E6007E] text-white px-3 py-3 rounded-full font-bold hover:bg-[#c4006b]"
+              className="block w-full text-center mt-4 bg-primary text-white px-3 py-3 rounded-full font-bold hover:bg-primary-dark"
               onClick={() => setIsOpen(false)}
             >
               APPLY NOW
