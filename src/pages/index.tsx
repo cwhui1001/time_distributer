@@ -198,7 +198,7 @@ export default function Main() {
                       className="object-contain"
                     />
                   </div>
-                  <a href="https://api.whatsapp.com/send?phone=60102833348&text=Hello%20TIME%20InternetI%20would%20like%20to%20know%20if%20my%20area%20is%20under%20TIME%20coverage%3FFull%20Address%20%3A%20Building%20Name%3A" target="_blank" rel="noopener noreferrer" className="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-500 hover:text-black transition-colors shadow-lg">
+                  <a href="https://api.whatsapp.com/send?phone=601133038836&text=Hello%20TIME%20InternetI%20would%20like%20to%20know%20if%20my%20area%20is%20under%20TIME%20coverage%3FFull%20Address%20%3A%20Building%20Name%3A" target="_blank" rel="noopener noreferrer" className="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-500 hover:text-black transition-colors shadow-lg">
                     Sign Up Enquiries
                   </a>
                </div>
@@ -258,7 +258,7 @@ export default function Main() {
                     Whatsapp Us Now to Connect with TIME Fibre Home Broadband
                   </p>
                   <a 
-                    href="https://api.whatsapp.com/send?phone=60102833348&text=Hello%20TIME%20InternetI%20would%20like%20to%20know%20if%20my%20area%20is%20under%20TIME%20coverage%3FFull%20Address%20%3A%20Building%20Name%3A" 
+                    href="https://api.whatsapp.com/send?phone=601133038836&text=Hello%20TIME%20InternetI%20would%20like%20to%20know%20if%20my%20area%20is%20under%20TIME%20coverage%3FFull%20Address%20%3A%20Building%20Name%3A" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#128C7E] transition-colors shadow-lg hover:shadow-xl gap-2"
