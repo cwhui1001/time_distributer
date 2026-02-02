@@ -1,10 +1,15 @@
 
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import SupportSection from "@/components/SupportSection";
+import CoverageSection from "@/components/CoverageSection";
+import CheckCoverageModal from "@/components/CheckCoverageModal";
+
 
 export default function Application() {
   const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     apply_name: "",
     apply_email: "",
@@ -275,6 +280,15 @@ export default function Application() {
           </form>
         </div>
       </div>
+      {/* Device Coverage & Check Coverage Section */}
+      <CoverageSection onOpenModal={() => setIsModalOpen(true)} />
+      {/* Support Section */}
+      <SupportSection />
+
+      <CheckCoverageModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </>
   );
 }
