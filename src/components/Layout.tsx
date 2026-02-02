@@ -1,6 +1,7 @@
 
 import Navbar from './Navbar';
 import Footer from './Footer';
+import WhatsAppButton from './WhatsAppButton';
 import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
@@ -20,6 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex-grow pt-20">
         {children}
       </main>
+      <WhatsAppButton />
       <Footer />
     </div>
   );
