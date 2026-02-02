@@ -4,8 +4,15 @@ import Image from 'next/image';
 import { ArrowRight, Monitor, Briefcase, Users, Phone, FileText, CreditCard, Zap } from 'lucide-react';
 import Head from 'next/head';
 import HeroSlider from '@/components/HeroSlider';
+import CheckCoverageModal from '@/components/CheckCoverageModal';
+import { useState, useEffect } from 'react';
 
 export default function Main() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+  
+    useEffect(() => {
+      setIsModalOpen(true);
+    }, []);
   return (
     <>
       <Head>
@@ -271,6 +278,10 @@ export default function Main() {
           </div>
         </div>
       </section>
+      <CheckCoverageModal 
+                  isOpen={isModalOpen} 
+                  onClose={() => setIsModalOpen(false)} 
+              />
     </>
   );
 }
