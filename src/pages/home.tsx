@@ -241,11 +241,8 @@ export default function Home() {
             <h3 className="text-lg font-bold text-gray-800 mb-4">Terms & Conditions</h3>
             <ul className="list-decimal pl-5 space-y-2 text-sm text-gray-600">
                 <li>Price(s) displayed are subject to 6% Service Tax where applicable.</li>
-                <li>The bill discount(s) apply to your full month's subscription fee(s). Other charges such as voice calls, deposits, add-ons etc still apply.</li>
                 <li>Our 2Gbps plan is only available in selected locations. We're working on bringing it as far and wide as we can.</li>
-                <li>All promotions displayed are applicable to 24-month contract plans and available for a limited time only. Terms and conditions apply.</li>
-                <li>Fibre-To-The-Room (FTTR) is only available in selected locations.</li>
-                <li>To use voice services, you'll need a fixed line phone, available at most electronic retailers.</li>
+                <li>Promo discounts do not apply to prorated charges, only your full month's subscription fees.</li>
             </ul>
         </div>
       </section>
