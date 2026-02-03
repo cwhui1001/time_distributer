@@ -58,11 +58,11 @@ export default function Footer() {
                 <Mail className="w-5 h-5 text-primary mt-0.5" />
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Email Us</p>
-                  <a href="mailto:sales@fibrehomeinternet.com" className="text-gray-800 font-bold hover:text-primary big-text">
-                    sales@fibrehomeinternet.com
+                  <a href="mailto:sales@fiberinternetonline.my" className="text-gray-800 font-bold hover:text-primary big-text">
+                    sales@fiberinternetonline.my
                   </a>
                 </div>
-              </li>
+              </li> 
             </ul>
           </div>
 
