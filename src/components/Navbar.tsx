@@ -1,10 +1,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const pathname = router.pathname;
 
   const navLinks = [
     { name: "For Home", href: "/home" },
@@ -12,6 +15,25 @@ export default function Navbar() {
     { name: "Check Coverage", href: "/check-coverage" },
     { name: "Career", href: "/career" },
   ];
+
+  const getLinkClass = (path: string, isMobile = false) => {
+    const isActive = pathname === path;
+    const baseClass = isMobile 
+      ? "block px-3 py-3 text-base font-medium rounded-md transition-colors" 
+      : "font-medium transition-colors";
+    
+    const inactiveClass = "text-gray-700 hover:text-primary hover:bg-gray-50";
+    const activeClass = "text-primary font-bold bg-primary/5"; // Subtle background for active state
+    
+    // For desktop, we don't want the background and block/padding same as mobile
+    if (!isMobile) {
+      return isActive 
+        ? "text-primary font-bold" 
+        : "text-gray-700 hover:text-primary";
+    }
+
+    return `${baseClass} ${isActive ? activeClass : inactiveClass}`;
+  };
 
   return (
     <nav className="fixed top-0 w-full bg-white z-50 shadow-sm border-b border-gray-100">
@@ -37,7 +59,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 hover:text-primary font-medium transition-colors"
+                className={getLinkClass(link.href, false)}
               >
                 {link.name}
               </Link>
@@ -70,7 +92,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md"
+                className={getLinkClass(link.href, true)}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
