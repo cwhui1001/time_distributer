@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import SupportSection from "@/components/SupportSection";
 
+import { sendEmail } from "@/utils/emailService";
+
 export default function CheckCoverage() {
   const router = useRouter();
   const [step, setStep] = useState(1);
@@ -66,24 +68,17 @@ export default function CheckCoverage() {
     // Open WhatsApp immediately to avoid popup blockers
     window.open(whatsappUrl, "_blank");
 
-    // Send email in the background
+    // Send email using EmailJS in background
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          formType: 'coverage',
-          formData: formData,
-        }),
+      await sendEmail({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: `Check Coverage Request: ${formData.name}`,
+        message: message
       });
-
-      if (!response.ok) {
-        console.error("Failed to send email");
-      }
     } catch (error) {
-      console.error("Error sending email:", error);
+       console.error("Error sending email:", error);
     }
 
     // Optionally redirect to a thank you page

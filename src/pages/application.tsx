@@ -7,6 +7,8 @@ import CoverageSection from "@/components/CoverageSection";
 import CheckCoverageModal from "@/components/CheckCoverageModal";
 
 
+import { sendEmail } from "@/utils/emailService";
+
 export default function Application() {
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -56,17 +58,14 @@ export default function Application() {
     // Open WhatsApp in new tab
     window.open(whatsappUrl, "_blank");
 
-    // Send email in the background
+    // Send email using EmailJS in background
     try {
-      await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          formType: 'application',
-          formData: formData,
-        }),
+      await sendEmail({
+        name: formData.apply_name,
+        email: formData.apply_email,
+        phone: formData.apply_phone,
+        subject: `New Application: ${formData.apply_name}`,
+        message: message
       });
     } catch (error) {
       console.error("Error sending email:", error);

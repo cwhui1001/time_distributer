@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
+import { sendEmail } from "@/utils/emailService";
 
 interface CheckCoverageModalProps {
   isOpen: boolean;
@@ -66,20 +67,17 @@ export default function CheckCoverageModal({ isOpen, onClose }: CheckCoverageMod
 
     window.open(whatsappUrl, "_blank");
     
-    // Send email in the background
+    // Send email using EmailJS in background
     try {
-      await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          formType: 'coverage',
-          formData: formData,
-        }),
+      await sendEmail({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: `Check Coverage Request: ${formData.name}`,
+        message: message
       });
     } catch (error) {
-      console.error("Error sending email:", error);
+       console.error("Error sending email:", error);
     }
 
     onClose();
