@@ -168,17 +168,18 @@ export default function CheckCoverageModal({ isOpen, onClose }: CheckCoverageMod
                       <input type="text" name="unit_no" required value={formData.unit_no} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none text-gray-700" />
                   </div>
                   <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-2">Building Name</label>
-                      <input type="text" name="building_name" value={formData.building_name} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none text-gray-700" />
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Building Name <span className="text-red-500">*</span></label>
+                      <input type="text" name="building_name" required value={formData.building_name} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none text-gray-700" />
                   </div>
                   <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-2">Jalan / Kampung <span className="text-red-500">*</span></label>
-                      <input type="text" name="jalan" required value={formData.jalan} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none text-gray-700" />
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Jalan / Kampung </label>
+                      <input type="text" name="jalan"  value={formData.jalan} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none text-gray-700" />
                   </div>
                   <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-2">Taman / Section / Kampung / Bandar <span className="text-red-500">*</span></label>
-                      <input type="text" name="taman" required value={formData.taman} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none text-gray-700" />
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Taman / Section / Kampung / Bandar </label>
+                      <input type="text" name="taman"  value={formData.taman} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none text-gray-700" />
                   </div>
+                 <div><p className="text-gray-600 mb-2">*put - if not applicable</p></div> 
               </div>
             )}
 
@@ -223,22 +224,6 @@ export default function CheckCoverageModal({ isOpen, onClose }: CheckCoverageMod
                       </div>
                    </div>
                    <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-2">Current Mobile Services <span className="text-red-500">*</span></label>
-                       <div className="relative">
-                          <select name="mobile_service" required value={formData.mobile_service} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none appearance-none bg-white text-gray-700">
-                              <option value="">Choose the Answer</option>
-                              <option value="Celcomdigi Postpaid(Prabayar) 60 or above">Celcomdigi Postpaid(Prabayar) 60 or above</option>
-                              <option value="Celcomdigi Postpaid(Prabayar) 40">Celcomdigi Postpaid(Prabayar) 40</option>
-                              <option value="Celcomdigi Prepaid(Pascabayar) User">Celcomdigi Prepaid(Pascabayar) User</option>
-                              <option value="Maxis Postpaid user">Maxis Postpaid user</option>
-                              <option value="Other user">Other user</option>
-                          </select>
-                          <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-gray-500">
-                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
-                          </div>
-                      </div>
-                   </div>
-                   <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">Current Internet Service Provider</label>
                        <div className="relative">
                           <select name="current_isp" value={formData.current_isp} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none appearance-none bg-white text-gray-700">
@@ -253,8 +238,8 @@ export default function CheckCoverageModal({ isOpen, onClose }: CheckCoverageMod
                       </div>
                    </div>
                    <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-2">Message To Us <span className="text-red-500">*</span></label>
-                      <textarea name="message" required rows={4} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none resize-y text-gray-700"></textarea>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Message To Us </label>
+                      <textarea name="message"  rows={4} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none resize-y text-gray-700"></textarea>
                    </div>
               </div>
             )}
