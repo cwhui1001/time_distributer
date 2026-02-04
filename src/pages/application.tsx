@@ -31,7 +31,7 @@ export default function Application() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Construct the WhatsApp message
@@ -55,6 +55,22 @@ export default function Application() {
     
     // Open WhatsApp in new tab
     window.open(whatsappUrl, "_blank");
+
+    // Send email in the background
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'application',
+          formData: formData,
+        }),
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
     
     // Redirect current tab to Thank You page
     router.push("/thank-you-register");

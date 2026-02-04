@@ -46,7 +46,7 @@ export default function CheckCoverage() {
     setStep((prev) => prev - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Construct the WhatsApp message for Coverage Check
@@ -63,7 +63,29 @@ export default function CheckCoverage() {
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://api.whatsapp.com/send?phone=601133038836&text=${encodedMessage}`;
 
+    // Open WhatsApp immediately to avoid popup blockers
     window.open(whatsappUrl, "_blank");
+
+    // Send email in the background
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'coverage',
+          formData: formData,
+        }),
+      });
+
+      if (!response.ok) {
+        console.error("Failed to send email");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+
     // Optionally redirect to a thank you page
     // router.push("/thank-you"); 
   };

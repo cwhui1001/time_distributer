@@ -48,7 +48,7 @@ export default function CheckCoverageModal({ isOpen, onClose }: CheckCoverageMod
     setStep((prev) => prev - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const message = `Check Coverage Request:
@@ -65,6 +65,23 @@ export default function CheckCoverageModal({ isOpen, onClose }: CheckCoverageMod
     const whatsappUrl = `https://api.whatsapp.com/send?phone=601133038836&text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank");
+    
+    // Send email in the background
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'coverage',
+          formData: formData,
+        }),
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+
     onClose();
   };
 
