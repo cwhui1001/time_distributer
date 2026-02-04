@@ -8,7 +8,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { ArrowUpRight, Wifi, Phone, Cloud } from "lucide-react";
 import React, { useState, useEffect } from "react";
-import CheckCoverageModal from "@/components/CheckCoverageModal";
+// import CheckCoverageModal from "@/components/CheckCoverageModal";
 
 export default function Business() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,10 +30,10 @@ export default function Business() {
         
         <BusinessPlans onOpenModal={() => setIsModalOpen(true)} />
         
-        <CheckCoverageModal 
+        {/* <CheckCoverageModal 
             isOpen={isModalOpen} 
             onClose={() => setIsModalOpen(false)} 
-        />
+        /> */}
     </>
   );
 }
