@@ -13,7 +13,6 @@ export default function Navbar() {
     { name: "For Home", href: "/home" },
     { name: "For Business", href: "/business" },
     { name: "Check Coverage", href: "/check-coverage" },
-    { name: "Career", href: "/career" },
   ];
 
   const getLinkClass = (path: string, isMobile = false) => {
