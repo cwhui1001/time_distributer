@@ -154,9 +154,7 @@ function HomePlansSection({ plans }: { plans: Plan[] }) {
                             </div>
                             <div className="p-6 pt-0 mt-auto">
                                 <a 
-                                   href="https://api.whatsapp.com/send?phone=601133038836&text=Hi%20TIME%20Internet,%20I%20am%20interested%20in%20the%20200Mbps%20Plan"
-                                   target="_blank" 
-                                   rel="noopener noreferrer"
+                                   href="/application"
                                    className="block w-full text-center bg-primary text-white py-3 rounded-full font-bold hover:bg-black transition-colors"
                                 >
                                     SUBSCRIBE

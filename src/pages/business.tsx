@@ -8,7 +8,6 @@ import Head from "next/head";
 import Image from "next/image";
 import { ArrowUpRight, Wifi, Phone, Cloud } from "lucide-react";
 import React, { useState, useEffect } from "react";
-import CheckCoverageModal from "@/components/CheckCoverageModal";
 import path from 'path';
 import fs from 'fs';
 

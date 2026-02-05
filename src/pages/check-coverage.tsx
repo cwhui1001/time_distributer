@@ -51,6 +51,11 @@ export default function CheckCoverage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Google Ads Conversion Tracking
+    if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
+      (window as any).gtag_report_conversion();
+    }
+
     // Construct the WhatsApp message for Coverage Check
     const message = `Check Coverage Request:
         Name: ${formData.name}

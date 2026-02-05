@@ -46,6 +46,11 @@ const Maintenance = () => {
               target="_blank" 
               rel="noopener noreferrer"
               className="px-6 py-3 bg-[#25D366] text-white rounded-lg font-semibold hover:bg-[#20bd5a] transition-colors flex items-center gap-2 w-full sm:w-auto justify-center"
+              onClick={() => {
+                if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
+                  (window as any).gtag_report_conversion();
+                }
+              }}
             >
               <svg
               viewBox="0 0 24 24"

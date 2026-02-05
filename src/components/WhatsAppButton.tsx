@@ -15,6 +15,11 @@ export default function WhatsAppButton() {
         rel="noopener noreferrer"
         className="relative flex items-center justify-center w-16 h-16 bg-[#25D366] rounded-full shadow-2xl hover:bg-[#20bd5a] hover:scale-110 transition-all duration-300 group animate-bounce-slow"
         aria-label="Contact us on WhatsApp"
+        onClick={() => {
+          if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
+            (window as any).gtag_report_conversion();
+          }
+        }}
       >
         <svg
           viewBox="0 0 24 24"

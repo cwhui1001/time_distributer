@@ -36,6 +36,11 @@ export default function Application() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Google Ads Conversion Tracking
+    if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
+      (window as any).gtag_report_conversion();
+    }
+    
     // Construct the WhatsApp message
     const message = `Form Submission Details:
         Apply Name: ${formData.apply_name}
