@@ -8,9 +8,49 @@ import Head from "next/head";
 import Image from "next/image";
 import { ArrowUpRight, Wifi, Phone, Cloud } from "lucide-react";
 import React, { useState, useEffect } from "react";
-// import CheckCoverageModal from "@/components/CheckCoverageModal";
+import CheckCoverageModal from "@/components/CheckCoverageModal";
+import path from 'path';
+import fs from 'fs';
 
-export default function Business() {
+// Map icon strings to components
+const IconMap: { [key: string]: any } = {
+  ArrowUpRight: ArrowUpRight,
+  Wifi: Wifi,
+  Phone: Phone,
+  Cloud: Cloud
+};
+
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), 'public', 'business_plans.json');
+  const jsonData = fs.readFileSync(filePath, 'utf8');
+  const businessPlans = JSON.parse(jsonData);
+
+  return {
+    props: {
+      businessPlans,
+    },
+  };
+}
+
+interface PlanFeature {
+    icon: string;
+    text: string;
+    highlight?: boolean;
+}
+
+interface Plan {
+    speed: string;
+    price: string;
+    subtitle: string;
+    special: string;
+    features: PlanFeature[];
+}
+
+interface BusinessProps {
+    businessPlans: Plan[];
+}
+
+export default function Business({ businessPlans }: BusinessProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -28,7 +68,7 @@ export default function Business() {
         {/* Why We Are Better Section */}
         <WhyWeBetter title="Level Up Your Business" />
         
-        <BusinessPlans onOpenModal={() => setIsModalOpen(true)} />
+        <BusinessPlans onOpenModal={() => setIsModalOpen(true)} plans={businessPlans} />
         
         {/* <CheckCoverageModal 
             isOpen={isModalOpen} 
@@ -37,63 +77,14 @@ export default function Business() {
     </>
   );
 }
-// Business Plans Data
-const businessPlans = [
-    {
-        speed: "300Mbps",
-        price: "RM128",
-        subtitle: "Starter",
-        special: "Basic Boosting",
-        features: [
-            { icon: ArrowUpRight, text: "300Mbps / 300Mbps" },
-            { icon: Wifi, text: "1 x Wi-Fi 6 Router" },
-            { icon: Phone, text: "1 Voice Line" }
-        ]
-    },
-    {
-        speed: "600Mbps",
-        price: "RM188",
-        subtitle: "Standard",
-        special: "Free Mesh Wifi",
-        features: [
-            { icon: ArrowUpRight, text: "600Mbps / 500Mbps" },
-            { icon: Wifi, text: "1 x Wi-Fi 6 Router" },
-            { icon: Wifi, text: "1 x Wi-Fi 6 Mesh Wifi", highlight: true },
-            { icon: Phone, text: "1 Voice Line" }
-        ]
-    },
-    {
-         speed: "1Gbps",
-         price: "RM258",
-         subtitle: "Ultra Fast",
-         special: "Free Mesh Wifi",
-         features: [
-             { icon: ArrowUpRight, text: "1Gbps / 500Mbps" },
-             { icon: Wifi, text: "1 x Wi-Fi 7 Router" },
-             { icon: Wifi, text: "1 x Wi-Fi 6 Mesh Wifi", highlight: true },
-             { icon: Phone, text: "1 Voice Line" }
-         ]
-     },
-     {
-         speed: "2Gbps",
-         price: "RM388",
-         subtitle: "Maximum Speed",
-         special: "Free Mesh Wifi",
-         features: [
-             { icon: ArrowUpRight, text: "2Gbps / 1Gbps" },
-             { icon: Wifi, text: "1 x High Performance Wi-Fi 7 Router" },
-             { icon: Wifi, text: "1 x Wi-Fi 6 Mesh Wifi", highlight: true },
-             { icon: Phone, text: "1 Voice Line" }
-         ]
-     }
-]
 
 // Add plan section
 interface BusinessPlansProps {
     onOpenModal: () => void;
+    plans: Plan[];
 }
 
-function BusinessPlans({ onOpenModal }: BusinessPlansProps) {
+function BusinessPlans({ onOpenModal, plans }: BusinessPlansProps) {
     return (
         <>
         <section className="py-10 bg-purple-50">
@@ -104,7 +95,7 @@ function BusinessPlans({ onOpenModal }: BusinessPlansProps) {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {businessPlans.map((plan, index) => (
+                    {plans.map((plan, index) => (
                         <div key={index} className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 flex flex-col">
                             <div className="p-8 flex-grow">
                                 <div className="mb-6">
@@ -122,12 +113,15 @@ function BusinessPlans({ onOpenModal }: BusinessPlansProps) {
                                 </div>
 
                                 <div className="space-y-4 mb-4">
-                                    {plan.features.map((feature, i) => (
+                                    {plan.features.map((feature, i) => {
+                                        const IconComponent = IconMap[feature.icon] || ArrowUpRight;
+                                        return (
                                         <div key={i} className="flex items-start gap-3">
-                                            <feature.icon className={`w-5 h-5 flex-shrink-0 mt-0.5 ${feature.highlight ? 'text-green-500' : 'text-purple-700'}`} />
+                                            <IconComponent className={`w-5 h-5 flex-shrink-0 mt-0.5 ${feature.highlight ? 'text-green-500' : 'text-purple-700'}`} />
                                             <span className={`text-sm ${feature.highlight ? 'text-green-600 font-bold' : 'text-gray-600'}`}>{feature.text}</span>
                                         </div>
-                                    ))}
+                                        );
+                                    })}
                                 </div>
                             </div>
                             

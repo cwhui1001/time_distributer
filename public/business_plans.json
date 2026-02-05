@@ -1,0 +1,49 @@
+[
+    {
+        "speed": "300Mbps",
+        "price": "RM128",
+        "subtitle": "Starter",
+        "special": "Basic Boosting",
+        "features": [
+            { "icon": "ArrowUpRight", "text": "300Mbps / 300Mbps" },
+            { "icon": "Wifi", "text": "1 x Wi-Fi 6 Router" },
+            { "icon": "Phone", "text": "1 Voice Line" }
+        ]
+    },
+    {
+        "speed": "600Mbps",
+        "price": "RM188",
+        "subtitle": "Standard",
+        "special": "Free Mesh Wifi",
+        "features": [
+            { "icon": "ArrowUpRight", "text": "600Mbps / 500Mbps" },
+            { "icon": "Wifi", "text": "1 x Wi-Fi 6 Router" },
+            { "icon": "Wifi", "text": "1 x Wi-Fi 6 Mesh Wifi", "highlight": true },
+            { "icon": "Phone", "text": "1 Voice Line" }
+        ]
+    },
+    {
+         "speed": "1Gbps",
+         "price": "RM258",
+         "subtitle": "Ultra Fast",
+         "special": "Free Mesh Wifi",
+         "features": [
+             { "icon": "ArrowUpRight", "text": "1Gbps / 500Mbps" },
+             { "icon": "Wifi", "text": "1 x Wi-Fi 7 Router" },
+             { "icon": "Wifi", "text": "1 x Wi-Fi 6 Mesh Wifi", "highlight": true },
+             { "icon": "Phone", "text": "1 Voice Line" }
+         ]
+     },
+     {
+         "speed": "2Gbps",
+         "price": "RM388",
+         "subtitle": "Maximum Speed",
+         "special": "Free Mesh Wifi",
+         "features": [
+             { "icon": "ArrowUpRight", "text": "2Gbps / 1Gbps" },
+             { "icon": "Wifi", "text": "1 x High Performance Wi-Fi 7 Router" },
+             { "icon": "Wifi", "text": "1 x Wi-Fi 6 Mesh Wifi", "highlight": true },
+             { "icon": "Phone", "text": "1 Voice Line" }
+         ]
+     }
+]

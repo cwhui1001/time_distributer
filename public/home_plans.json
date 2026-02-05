@@ -1,0 +1,49 @@
+[
+    {
+        "speed": "200Mbps",
+        "price": "RM99",
+        "subtitle": "Starter Pack",
+        "special": "Free Installation",
+        "features": [
+            { "icon": "ArrowUpRight", "text": "200Mbps / 200Mbps" },
+            { "icon": "Wifi", "text": "1 x Wi-Fi 6 Router" },
+            { "icon": "Phone", "text": "Voice Home Basic (Pay-as-you-use)" }
+        ]
+    },
+    {
+        "speed": "600Mbps",
+        "price": "RM139",
+        "subtitle": "Most Popular",
+        "special": "Free Installation",
+        "wifi7Badge": true,
+        "promoBanner": "RM99 for first 6 months",
+        "features": [
+            { "icon": "ArrowUpRight", "text": "600Mbps / 500Mbps" },
+            { "icon": "Wifi", "text": "1 x Wi-Fi 7 Router" },
+            { "icon": "Phone", "text": "Voice Home Basic (Pay-as-you-use)" }
+        ]
+    },
+    {
+        "speed": "1Gbps",
+        "price": "RM199",
+        "subtitle": "Ultra Fast",
+        "wifi7Badge": true,
+        "special": "Free Installation",
+        "features": [
+            { "icon": "ArrowUpRight", "text": "1Gbps / 500Mbps" },
+            { "icon": "Wifi", "text": "1 x Wi-Fi 7 Router" },
+            { "icon": "Phone", "text": "Voice Home Basic (Pay-as-you-use)" }
+        ]
+    },
+    {
+        "speed": "2Gbps",
+        "price": "RM379",
+        "subtitle": "Maximum Speed",
+        "special": "Free Installation",
+        "features": [
+            { "icon": "ArrowUpRight", "text": "2Gbps / 500Mbps" },
+            { "icon": "Wifi", "text": "1 x 2Gbps Wi-Fi 7 Router" },
+            { "icon": "Phone", "text": "Voice Home Basic (Pay-as-you-use)" }
+        ]
+    }
+]

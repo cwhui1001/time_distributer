@@ -9,7 +9,49 @@ import { Check, Wifi, ArrowUpRight, Phone } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import CheckCoverageModal from "@/components/CheckCoverageModal";
 
-export default function Home() {
+import path from 'path';
+import fs from 'fs';
+
+// Map icon strings to components
+const IconMap: { [key: string]: any } = {
+  ArrowUpRight: ArrowUpRight,
+  Wifi: Wifi,
+  Phone: Phone,
+  Check: Check
+};
+
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), 'public', 'home_plans.json');
+  const jsonData = fs.readFileSync(filePath, 'utf8');
+  const homePlans = JSON.parse(jsonData);
+
+  return {
+    props: {
+      homePlans,
+    },
+  };
+}
+
+interface PlanFeature {
+  icon: string;
+  text: string;
+}
+
+interface Plan {
+  speed: string;
+  price: string;
+  subtitle: string;
+  special: string;
+  wifi7Badge?: boolean;
+  promoBanner?: string;
+  features: PlanFeature[];
+}
+
+interface HomeProps {
+  homePlans: Plan[];
+}
+
+export default function Home({ homePlans }: HomeProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -28,7 +70,8 @@ export default function Home() {
       <WhyWeBetter />
       
       {/* Pricing Plans Section */}
-      <HomePlans />
+      <HomePlansSection plans={homePlans} />
+
 
       {/* Terms & Conditions Section */}
       <section className="py-12 bg-gray-50 border-t border-gray-200">
@@ -56,58 +99,7 @@ export default function Home() {
   );
 }
 
-// Home Plans Data
-const homePlans = [
-    {
-        speed: "200Mbps",
-        price: "RM99",
-        subtitle: "Starter Pack",
-        special: "Free Installation",
-        features: [
-            { icon: ArrowUpRight, text: "200Mbps / 200Mbps" },
-            { icon: Wifi, text: "1 x Wi-Fi 6 Router" },
-            { icon: Phone, text: "Voice Home Basic (Pay-as-you-use)" }
-        ]
-    },
-    {
-        speed: "600Mbps",
-        price: "RM139",
-        subtitle: "Most Popular",
-        special: "Free Installation",
-        wifi7Badge: true,
-        promoBanner: "RM99 for first 6 months",
-        features: [
-            { icon: ArrowUpRight, text: "600Mbps / 500Mbps" },
-            { icon: Wifi, text: "1 x Wi-Fi 7 Router" },
-            { icon: Phone, text: "Voice Home Basic (Pay-as-you-use)" }
-        ]
-    },
-    {
-        speed: "1Gbps",
-        price: "RM199",
-        subtitle: "Ultra Fast",
-        wifi7Badge: true,
-        special: "Free Installation",
-        features: [
-            { icon: ArrowUpRight, text: "1Gbps / 500Mbps" },
-            { icon: Wifi, text: "1 x Wi-Fi 7 Router" },
-            { icon: Phone, text: "Voice Home Basic (Pay-as-you-use)" }
-        ]
-    },
-    {
-        speed: "2Gbps",
-        price: "RM379",
-        subtitle: "Maximum Speed",
-        special: "Free Installation",
-        features: [
-            { icon: ArrowUpRight, text: "2Gbps / 500Mbps" },
-            { icon: Wifi, text: "1 x 2Gbps Wi-Fi 7 Router" },
-            { icon: Phone, text: "Voice Home Basic (Pay-as-you-use)" }
-        ]
-    }
-];
-
-function HomePlans() {
+function HomePlansSection({ plans }: { plans: Plan[] }) {
     return (
         <section className="py-10 bg-pink-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,7 +109,7 @@ function HomePlans() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {homePlans.map((plan, index) => (
+                    {plans.map((plan, index) => (
                         <div 
                             key={index} 
                             className={`bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 flex flex-col relative ${plan.promoBanner ? 'border-purple-500' : ''}`}
@@ -149,17 +141,20 @@ function HomePlans() {
                                     <p className="text-center text-md text-black font-bold">{plan.special}</p>
                                 </div>
                                 <div className="space-y-4 mb-4">
-                                    {plan.features.map((feature, i) => (
-                                        <div key={i} className="flex items-start gap-3">
-                                            <feature.icon className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                                            <span className="text-gray-600 text-sm">{feature.text}</span>
-                                        </div>
-                                    ))}
+                                    {plan.features.map((feature, i) => {
+                                        const IconComponent = IconMap[feature.icon] || ArrowUpRight;
+                                        return (
+                                            <div key={i} className="flex items-start gap-3">
+                                                <IconComponent className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                                                <span className="text-gray-600 text-sm">{feature.text}</span>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
                             <div className="p-6 pt-0 mt-auto">
                                 <a 
-                                   href="https://api.whatsapp.com/send?phone=601133038836&text=Hi%20TIME%20Internet,%20I%20am%20interested%20in%20the%202Gbps%20Plan"
+                                   href="https://api.whatsapp.com/send?phone=601133038836&text=Hi%20TIME%20Internet,%20I%20am%20interested%20in%20the%20200Mbps%20Plan"
                                    target="_blank" 
                                    rel="noopener noreferrer"
                                    className="block w-full text-center bg-primary text-white py-3 rounded-full font-bold hover:bg-black transition-colors"
