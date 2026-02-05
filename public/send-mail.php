@@ -97,7 +97,7 @@ $admin_message = <<<HTML
 </html>
 HTML;
 
-$admin_headers = "From: Fiber Internet Online <" . $from_email . ">\r\n";
+$admin_headers = "From: Time Authorized Distributor <" . $from_email . ">\r\n";
 $admin_headers .= "Reply-To: " . $user_email . "\r\n";
 $admin_headers .= "MIME-Version: 1.0\r\n";
 $admin_headers .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -112,7 +112,7 @@ $admin_sent = mail($admin_email, $admin_subject, $admin_message, $admin_headers,
 $start_date = date("d/m/Y"); 
 $start_time = date("h:i A");
 
-$reply_subject = "We received your request! - Fiber Internet Online";
+$reply_subject = "We received your request! - Time Authorized Distributor";
 
 // HTML Template for Customer
 $reply_message = <<<HTML
@@ -158,7 +158,7 @@ $reply_message = <<<HTML
 </html>
 HTML;
 
-$reply_headers = "From: Fiber Internet Online <" . $from_email . ">\r\n";
+$reply_headers = "From: Time Authorized Distributor <" . $from_email . ">\r\n";
 $reply_headers .= "Reply-To: " . $admin_email . "\r\n";
 $reply_headers .= "MIME-Version: 1.0\r\n";
 $reply_headers .= "Content-Type: text/html; charset=UTF-8\r\n";
