@@ -49,11 +49,18 @@ interface BusinessProps {
     businessPlans: Plan[];
 }
 
-export default function Business({ businessPlans }: BusinessProps) {
+export default function Business({ businessPlans: initialPlans }: BusinessProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [businessPlans, setBusinessPlans] = useState(initialPlans);
 
   useEffect(() => {
     setIsModalOpen(true);
+
+    // Fetch latest data from public folder to allow updates after build
+    fetch('/business_plans.json')
+      .then((res) => res.json())
+      .then((data) => setBusinessPlans(data))
+      .catch((err) => console.error("Error fetching business plans:", err));
   }, []);
   
   return (

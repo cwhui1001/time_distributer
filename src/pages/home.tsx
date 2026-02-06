@@ -51,11 +51,18 @@ interface HomeProps {
   homePlans: Plan[];
 }
 
-export default function Home({ homePlans }: HomeProps) {
+export default function Home({ homePlans: initialPlans }: HomeProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [homePlans, setHomePlans] = useState(initialPlans);
 
   useEffect(() => {
     setIsModalOpen(true);
+
+    // Fetch latest data from public folder to allow updates after build
+    fetch('/home_plans.json')
+      .then((res) => res.json())
+      .then((data) => setHomePlans(data))
+      .catch((err) => console.error("Error fetching home plans:", err));
   }, []);
 
   return (
