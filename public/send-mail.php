@@ -123,7 +123,7 @@ $reply_message = <<<HTML
     <!-- Brand Header -->
     <div style="background-color: #ffffff; padding: 25px; text-align: center; border-bottom: 4px solid #E6007E;">
        <!-- If you have a hosted logo link, replace the text below with an <img> tag -->
-       <h1 style="color: #6b21a8; margin: 0; font-family: sans-serif; font-weight: 800; font-size: 28px;">TIME <span style="color: #E6007E;">Fibre</span></h1>
+       <h1 style="color: #6b21a8; margin: 0; font-family: sans-serif; font-weight: 800; font-size: 28px;">TIME <span style="color: #E6007E;">Fiber</span></h1>
     </div>
 
     <!-- Customer Content -->
