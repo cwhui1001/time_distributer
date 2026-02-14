@@ -72,9 +72,16 @@ export default function Footer() {
       
       <div className="w-full bg-black py-6 text-center mt-12">
         <p className="text-gray-300 text-base font-medium">
-          TIME Authorised Distributor
+          Fibre Internet
         </p>
+        <p className="text-gray-300 text-base font-small">
+          © 2026 | All Rights Reserved | All trademarks are the property of their respective owner.
+        </p>
+        <div className="mt-2 text-gray-300 text-sm font-small">
+          <a href="/pdf/Privacy Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white mx-2">Privacy Policy</a>
+          <a href="/pdf/20251126-General-SO-Terms.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white mx-2">Terms & Conditions</a>
+        </div>
       </div>
-    </footer>
+    </footer> 
   );
 }
