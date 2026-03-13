@@ -10,7 +10,7 @@ export default function Admin() {
   // Check login on mount (optional - storing session)
   useEffect(() => {
     // Determine status on load
-    fetch('/maintenance.json')
+    fetch(`/maintenance.json?t=${new Date().getTime()}`, { cache: 'no-store' })
       .then(res => res.json())
       .then(data => setMaintenanceMode(data.maintenance_mode))
       .catch(err => console.error(err));

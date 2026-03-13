@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
           return;
       }
 
-      fetch('/maintenance.json')
+      fetch(`/maintenance.json?t=${new Date().getTime()}`, { cache: 'no-store' })
         .then(res => res.json())
         .then(data => {
            setMaintenanceMode(data.maintenance_mode);
