@@ -10,6 +10,7 @@ export default function Navbar() {
   const pathname = router.pathname;
 
   const navLinks = [
+    { name: "About Us", href: "/about-us" },
     { name: "For Home", href: "/home" },
     { name: "For Business", href: "/business" },
     { name: "Check Coverage", href: "/check-coverage" },

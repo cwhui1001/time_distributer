@@ -25,6 +25,7 @@ export default function Footer() {
             <h4 className="text-gray-900 font-bold mb-6 uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-3">
               <li><Link href="/" className="text-primary hover:text-black">Home</Link></li>
+              <li><Link href="/about-us" className="text-primary hover:text-black">About Us</Link></li>
               <li><Link href="/home" className="text-primary hover:text-black">For Home</Link></li>
               <li><Link href="/business" className="text-primary hover:text-black">For Business</Link></li>
               <li><Link href="/check-coverage" className="text-primary hover:text-black">Check Coverage</Link></li>
@@ -71,9 +72,10 @@ export default function Footer() {
         </div>
       
       <div className="w-full bg-black py-6 text-center mt-12">
-        <p className="text-gray-300 text-base font-medium">
+        <p className="text-white text-base font-medium font-bold">
           Fiber Internet Online
         </p>
+        <p className="text-gray-300 text-base font-small">Authorized Dealer for TIME dotCom | Independent Sales & Consultation</p>
         <p className="text-gray-300 text-base font-small">
           © 2026 | All Rights Reserved | All trademarks are the property of their respective owner.
         </p>
