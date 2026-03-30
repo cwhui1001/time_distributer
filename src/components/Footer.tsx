@@ -76,6 +76,8 @@ export default function Footer() {
           Fiber Internet Online
         </p>
         <p className="text-gray-300 text-base font-small">Authorized Dealer for TIME dotCom | Independent Sales & Consultation</p>
+        <p className="text-gray-300 text-base font-small">THE KSY ENTERPRISE 202203059028 (NS0266890-A)</p>
+        <p className="text-gray-300 text-base font-small">REGISTERED ADDRESS: NO. 22A, JALAN 2/125, DESA PETALING, 57100 KUALA LUMPUR, WILAYAH PERSEKUTUAN</p>
         <p className="text-gray-300 text-base font-small">
           © 2026 | All Rights Reserved | All trademarks are the property of their respective owner.
         </p>

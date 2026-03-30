@@ -29,7 +29,7 @@ export default function Main() {
           
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-extrabold text-primary mb-4">
-              Only At Time Fibre
+              Authorised Dealer : Best Deal for TIME Fibre
             </h2>
           </div>
 
