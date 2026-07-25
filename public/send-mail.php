@@ -27,8 +27,8 @@ if (!$data) {
 }
 
 // --- CONFIGURATION ---
-$from_email = "sales@fiberinternetonline.my"; 
-$admin_email = "sales@fiberinternetonline.my"; 
+$from_email = "admin@fibreregister.my"; 
+$admin_email = "admin@fibreregister.my"; 
 
 // Helper to clean input for HTML safety
 function clean($str) { 

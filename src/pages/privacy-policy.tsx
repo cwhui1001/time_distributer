@@ -75,7 +75,7 @@ export default function PrivacyPolicy() {
               If you have any questions regarding this Privacy Policy or how your data is handled, you may contact our support team:
             </p>
             <ul className="list-none space-y-2">
-               <li><strong>Email:</strong> <a href="mailto:sales@fiberinternetonline.my" className="text-primary hover:underline">sales@fiberinternetonline.my</a></li>
+               <li><strong>Email:</strong> <a href="mailto:admin@fibreregister.my" className="text-primary hover:underline">admin@fibreregister.my</a></li>
                <li><strong>Phone/WhatsApp:</strong> <a href="https://wa.me/601133038836" className="text-primary hover:underline">+601133038836</a></li>
                <li><strong>Website:</strong> <a href="https://fiberinternetonline.my" className="text-primary hover:underline">https://fiberinternetonline.my</a></li>
             </ul>
